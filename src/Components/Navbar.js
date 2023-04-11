@@ -1,10 +1,12 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import {
+  useLocation,
   Link
 } from "react-router-dom";
 
 export default function Navbar(props) {
+  let location = useLocation();
   return (
     <nav className={`navbar navbar-expand-lg navbar-dark bg-dark`}>
       <div className="container-fluid">
@@ -15,13 +17,13 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" to="/">General and Business</Link>
+              <Link className={`nav-link ${location.pathname === "/" ? "active":""}`} to="/">General and Business</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/sportent">Sports and Entertainment</Link>
+              <Link className={`nav-link ${location.pathname === "/sportent" ? "active":""}`} to="/sportent">Sports and Entertainment</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/sciencetech">Science and Technology</Link>
+              <Link className={`nav-link ${location.pathname === "/sciencetech" ? "active":""}`} to="/sciencetech">Science and Technology</Link>
             </li>
           </ul>
           <form className="d-flex" role="search">
